@@ -143,4 +143,5 @@ CREATE TABLE patients(
 ## NOTE: You should not fork the repository
 Remember: There might be multiple ways to design your database schema. The goal is to understand the concepts and create a logical structure to store your project data.
 
-
+# Preview of the Database Design
+![](/week-1-assignment-Purity-Wanjiku/Telemedicine.drawio.jpg)
