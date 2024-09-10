@@ -35,3 +35,38 @@ CREATE TABLE visits (
      FOREIGN KEY(patient_id) REFERENCES patients(patient_id),
      FOREIGN KEY(provider_id) REFERENCES providers(provider_id)
      );
+
+--Question 1.4
+ CREATE TABLE ed_visits (
+       ed_visit_id INT PRIMARY KEY AUTO_INCREMENT,
+       visit_id INT,
+       patient_id INT,
+       acuity INT,
+       reason_for_visit VARCHAR(255) NOT NULL,
+       disposition VARCHAR(255) NOT NULL,
+       FOREIGN KEY(visit_id) REFERENCES visits(visit_id),
+       FOREIGN KEY(patient_id) REFERENCES patients(patient_id)
+);
+
+--Question1.5
+CREATE TABLE admissions(
+      admission_id INT PRIMARY KEY,
+      patient_id INT,
+      admission_date DATE NOT NULL,
+      discharge_date DATE NOT NULL,
+      discharge_disposition VARCHAR (255) NOT NULL,
+      service VARCHAR(255) NOT NULL,
+      primary_diagnosis VARCHAR(255) NOT NULL,
+      FOREIGN KEY(patient_id) REFERENCES patients(patient_id)
+      );
+
+--Question1.6
+CREATE TABLE discharges(
+	   discharge_id INT PRIMARY KEY,
+       admission_id INT,
+       patient_id INT,
+       discharge_date DATE NOT NULL,
+       discharge_disposition VARCHAR(255) NOT NULL,
+       FOREIGN KEY(admission_id)REFERENCES admissions(admission_id),
+       FOREIGN KEY(patient_id)REFERENCES patients(patient_id)
+);      
